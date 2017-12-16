@@ -1,3 +1,6 @@
 .dockerignore
 .gitignore
+private.env
+private.env.template
+public.env
 README.md
