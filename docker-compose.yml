@@ -1,6 +1,7 @@
 version: "3.4"
 networks:
   main:
+  side:
 services:
   browser:
     image: nextmoose/browser:scratch_05e996af-8b1f-40b7-9c8c-eba269f7d0e1
@@ -27,8 +28,12 @@ services:
         aliases:
           - github
     command: ["--project-name", "github", "--cloud9-port", "14918", "--extension", "--upstream_id_rsa", "${UPSTREAM_ID_RSA}", "--upstream-organization", "rebelplutonium", "--upstream-repository", "governor", "--origin_id_rsa", "${ORIGIN_ID_RSA}", "--origin-organization", "nextmoose", "--upstream-repository", "governor", "--report_id_rsa", "${REPORT_ID_RSA}", "--report-organization", "rebelplutonium", "--report-repository", "governor", "--host-name", "github.com", "--host-port", "22", "--user-name", "${USER_NAME}", "--user-email", "${USER_EMAIL}"]
-
-
+  gitlab:
+    image: gitlab/gitlab-ce:10.1.2-ce.0
+    networks:
+      main:
+        aliases:
+          - gitlab
 
 
 
