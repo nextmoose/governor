@@ -1,7 +1,7 @@
 version: "3"
 services:
   browser:
-  image: ${BROWSER_IMAGE}
+  image: nextmoose/browser:scratch_05e996af-8b1f-40b7-9c8c-eba269f7d0e1
   privileged: true
   shm_size: "256m"
   environment:
