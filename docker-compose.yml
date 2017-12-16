@@ -14,6 +14,8 @@ services:
     networks:
       main:
     command: ["http://cloud9:14918"]
+    labels:
+      expiry: "${EXPIRY}"
   cloud9:
     image: nextmoose/cloud9:scratch_65de0557-be0d-44ed-bb84-a7dfa908a89a
     networks:
@@ -21,6 +23,8 @@ services:
         aliases:
           - cloud9
     command: ["--project-name", "cloud9", "--cloud9-port", "14918"]
+    labels:
+      expiry: "${EXPIRY}"
   github:
     image: nextmoose/github:scratch_65de0557-be0d-44ed-bb84-a7dfa908a89a
     networks:
@@ -28,12 +32,16 @@ services:
         aliases:
           - github
     command: ["--project-name", "github", "--cloud9-port", "14918", "--extension", "--upstream_id_rsa", "${UPSTREAM_ID_RSA}", "--upstream-organization", "rebelplutonium", "--upstream-repository", "governor", "--origin_id_rsa", "${ORIGIN_ID_RSA}", "--origin-organization", "nextmoose", "--upstream-repository", "governor", "--report_id_rsa", "${REPORT_ID_RSA}", "--report-organization", "rebelplutonium", "--report-repository", "governor", "--host-name", "github.com", "--host-port", "22", "--user-name", "${USER_NAME}", "--user-email", "${USER_EMAIL}"]
+    labels:
+      expiry: "${EXPIRY}"
   gitlab:
     image: gitlab/gitlab-ce:10.1.2-ce.0
     networks:
       main:
         aliases:
           - gitlab
+    labels:
+      expiry: "${EXPIRY}"
 
 
 
