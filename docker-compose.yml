@@ -1,0 +1,10 @@
+version: "3"
+services:
+  browser:
+  image: ${BROWSER_IMAGE}
+  privileged: true
+  shm_size: "256m"
+  environment:
+    - DISPLAY
+  volumes:
+    - "/tmp/.X11-unix:/tmp/.X11-unix:ro"
