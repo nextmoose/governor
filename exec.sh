@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker image pull nextmoose/governor:scratch/58a9c972-9286-4de0-93ca-5edf2b9980b5 &&
+docker image pull nextmoose/governor:scratch_58a9c972-9286-4de0-93ca-5edf2b9980b5 &&
     docker \
         container \
         run \

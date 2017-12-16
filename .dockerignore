@@ -1,5 +1,6 @@
 .dockerignore
 .gitignore
+exec.sh
 private.env
 private.env.template
 public.env
