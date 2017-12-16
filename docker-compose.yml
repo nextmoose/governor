@@ -1,4 +1,4 @@
-version: "3"
+version: "3.4"
 services:
   browser:
   image: nextmoose/browser:scratch_05e996af-8b1f-40b7-9c8c-eba269f7d0e1
