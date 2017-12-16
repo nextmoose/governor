@@ -7,7 +7,7 @@ docker image pull nextmoose/governor:scratch_58a9c972-9286-4de0-93ca-5edf2b9980b
         --interactive \
         --tty \
         --rm \
-        --env-file private.env \
+        --env-file public.env \
         --env UPSTREAM_ID_RSA="${UPSTREAM_ID_RSA}" \
         --env ORIGIN_ID_RSA="${ORIGIN_ID_RSA}" \
         --env REPORT_ID_RSA="${REPORT_ID_RSA}" \
