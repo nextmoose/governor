@@ -14,4 +14,5 @@ docker image pull nextmoose/governor:scratch_58a9c972-9286-4de0-93ca-5edf2b9980b
         --env EXPIRY=$(($(date +%s)+60*60*24*7)) \
         --label expiry=$(($(date +%s)+60*60*24*7)) \
         --env DISPLAY \
+        --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock,readonly=true \
         nextmoose/governor:scratch_58a9c972-9286-4de0-93ca-5edf2b9980b5
