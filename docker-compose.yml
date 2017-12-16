@@ -1,7 +1,6 @@
 version: "3.4"
 networks:
   main:
-  side:
 services:
   browser:
     image: nextmoose/browser:scratch_05e996af-8b1f-40b7-9c8c-eba269f7d0e1
@@ -22,7 +21,7 @@ services:
       main:
         aliases:
           - cloud9
-    command: ["--project-name", "cloud9", "--cloud9-port", "14918"]
+    command: ["--extension", "--project-name", "cloud9", "--cloud9-port", "14918"]
     labels:
       expiry: "${EXPIRY}"
   github:
