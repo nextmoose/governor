@@ -30,7 +30,7 @@ services:
       main:
         aliases:
           - github
-    command: ["--project-name", "github", "--cloud9-port", "14918", "--extension", "--upstream-id-rsa", "${UPSTREAM_ID_RSA}", "--upstream-organization", "rebelplutonium", "--upstream-repository", "governor", "--origin-id-rsa", "${ORIGIN_ID_RSA}", "--origin-organization", "nextmoose", "--upstream-repository", "governor", "--report-id-rsa", "${REPORT_ID_RSA}", "--report-organization", "rebelplutonium", "--report-repository", "governor", "--host-name", "github.com", "--host-port", "22", "--user-name", "${USER_NAME}", "--user-email", "${USER_EMAIL}"]
+    command: ["--project-name", "github", "--cloud9-port", "14918", "--extension", "--upstream-id-rsa", "${UPSTREAM_ID_RSA}", "--upstream-organization", "rebelplutonium", "--upstream-repository", "governor", "--origin-id-rsa", "${ORIGIN_ID_RSA}", "--origin-organization", "nextmoose", "--upstream-repository", "governor", "--report-id-rsa", "${REPORT_ID_RSA}", "--report-organization", "rebelplutonium", "--report-repository", "governor", "--host-name", "github.com", "--host-port", "22", "--user-name", "${USER_NAME}", "--user-email", "${USER_EMAIL}", "--master-branch", "master"]
     labels:
       expiry: "${EXPIRY}"
   gitlab:
