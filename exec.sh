@@ -4,7 +4,6 @@ docker \
     container \
     run \
     --interactive \
-    --tty \
     --rm \
     --label expiry=$(($(date +%s)+60*60*24*7)) \
     --env DISPLAY \
