@@ -33,6 +33,51 @@ services:
     command: ["--project-name", "github", "--cloud9-port", "14918", "--extension", "--upstream-id-rsa", "${UPSTREAM_ID_RSA}", "--upstream-organization", "rebelplutonium", "--upstream-repository", "governor", "--origin-id-rsa", "${ORIGIN_ID_RSA}", "--origin-organization", "nextmoose", "--upstream-repository", "governor", "--report-id-rsa", "${REPORT_ID_RSA}", "--report-organization", "rebelplutonium", "--report-repository", "governor", "--host-name", "github.com", "--host-port", "22", "--user-name", "${USER_NAME}", "--user-email", "${USER_EMAIL}", "--master-branch", "master"]
     labels:
       expiry: "${EXPIRY}"
+  governor.github:
+    image: nextmoose/github:scratch_b569e7f6-60e5-499d-8ba6-aa9f2185f0e1
+    networks:
+      main:
+        aliases:
+          - governor.github
+    command: ["--project-name", "governor.github", "--cloud9-port", "14918", "--extension", "--upstream-id-rsa", "${UPSTREAM_ID_RSA}", "--upstream-organization", "rebelplutonium", "--upstream-repository", "governor", "--origin-id-rsa", "${ORIGIN_ID_RSA}", "--origin-organization", "nextmoose", "--upstream-repository", "governor", "--report-id-rsa", "${REPORT_ID_RSA}", "--report-organization", "rebelplutonium", "--report-repository", "governor", "--host-name", "github.com", "--host-port", "22", "--user-name", "${USER_NAME}", "--user-email", "${USER_EMAIL}", "--master-branch", "master"]
+    labels:
+      expiry: "${EXPIRY}"
+  cloud9.github:
+    image: nextmoose/github:scratch_b569e7f6-60e5-499d-8ba6-aa9f2185f0e1
+    networks:
+      main:
+        aliases:
+          - cloud9.github
+    command: ["--project-name", "cloud9.github", "--cloud9-port", "14918", "--extension", "--upstream-id-rsa", "${UPSTREAM_ID_RSA}", "--upstream-organization", "rebelplutonium", "--upstream-repository", "cloud9", "--origin-id-rsa", "${ORIGIN_ID_RSA}", "--origin-organization", "nextmoose", "--upstream-repository", "cloud9", "--report-id-rsa", "${REPORT_ID_RSA}", "--report-organization", "rebelplutonium", "--report-repository", "cloud9", "--host-name", "github.com", "--host-port", "22", "--user-name", "${USER_NAME}", "--user-email", "${USER_EMAIL}", "--master-branch", "master"]
+    labels:
+      expiry: "${EXPIRY}"
+  github.github:
+    image: nextmoose/github:scratch_b569e7f6-60e5-499d-8ba6-aa9f2185f0e1
+    networks:
+      main:
+        aliases:
+          - github.github
+    command: ["--project-name", "github.github", "--cloud9-port", "14918", "--extension", "--upstream-id-rsa", "${UPSTREAM_ID_RSA}", "--upstream-organization", "rebelplutonium", "--upstream-repository", "github", "--origin-id-rsa", "${ORIGIN_ID_RSA}", "--origin-organization", "nextmoose", "--upstream-repository", "github", "--report-id-rsa", "${REPORT_ID_RSA}", "--report-organization", "rebelplutonium", "--report-repository", "github", "--host-name", "github.com", "--host-port", "22", "--user-name", "${USER_NAME}", "--user-email", "${USER_EMAIL}", "--master-branch", "master"]
+    labels:
+      expiry: "${EXPIRY}"
+  browser.github:
+    image: nextmoose/github:scratch_b569e7f6-60e5-499d-8ba6-aa9f2185f0e1
+    networks:
+      main:
+        aliases:
+          - browser.github
+    command: ["--project-name", "browser.github", "--cloud9-port", "14918", "--extension", "--upstream-id-rsa", "${UPSTREAM_ID_RSA}", "--upstream-organization", "rebelplutonium", "--upstream-repository", "browser", "--origin-id-rsa", "${ORIGIN_ID_RSA}", "--origin-organization", "nextmoose", "--upstream-repository", "browser", "--report-id-rsa", "${REPORT_ID_RSA}", "--report-organization", "rebelplutonium", "--report-repository", "browser", "--host-name", "github.com", "--host-port", "22", "--user-name", "${USER_NAME}", "--user-email", "${USER_EMAIL}", "--master-branch", "master"]
+    labels:
+      expiry: "${EXPIRY}"
+  commander.github:
+    image: nextmoose/github:scratch_b569e7f6-60e5-499d-8ba6-aa9f2185f0e1
+    networks:
+      main:
+        aliases:
+          - commander.github
+    command: ["--project-name", "commander.github", "--cloud9-port", "14918", "--extension", "--upstream-id-rsa", "${UPSTREAM_ID_RSA}", "--upstream-organization", "rebelplutonium", "--upstream-repository", "commander", "--origin-id-rsa", "${ORIGIN_ID_RSA}", "--origin-organization", "nextmoose", "--upstream-repository", "commander", "--report-id-rsa", "${REPORT_ID_RSA}", "--report-organization", "rebelplutonium", "--report-repository", "commander", "--host-name", "github.com", "--host-port", "22", "--user-name", "${USER_NAME}", "--user-email", "${USER_EMAIL}", "--master-branch", "master"]
+    labels:
+      expiry: "${EXPIRY}"
   gitlab:
     image: gitlab/gitlab-ce:10.1.2-ce.0
     networks:
