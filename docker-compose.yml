@@ -24,6 +24,15 @@ services:
     command: ["--extension", "--project-name", "cloud9", "--cloud9-port", "14918"]
     labels:
       expiry: "${EXPIRY}"
+  commander.main:
+    image: nextmoose/commander:scratch_dd6d1e7f-3841-4ba3-9207-63d3683fd0fa
+    networks:
+      main:
+        aliases:
+          - commander.main
+    command: ["--project-name", "github", "--cloud9-port", "14918", "--extension"]
+    labels:
+      expiry: "${EXPIRY}"
   github:
     image: nextmoose/github:scratch_b569e7f6-60e5-499d-8ba6-aa9f2185f0e1
     networks:
