@@ -24,6 +24,15 @@ services:
     command: ["--extension", "--project-name", "cloud9", "--cloud9-port", "14918"]
     labels:
       expiry: "${EXPIRY}"
+  secret-editor.main:
+    image: nextmoose/secret-editor:scratch_0aa97a0b-94d1-459d-bda4-6a751defd727
+    networks:
+      main:
+        aliases:
+          - commander.main
+    command: ["--project-name", "secret-editor.main", "--cloud9-port", "14918", "--extension", "--gpg-secret-key", "${GPG_SECRET_KEY}", "--gpg2-secret-key", "${GPG2_SECRET_KEY}", "--gpg-owner-trust", "${GPG_OWNER_TRUST}", "--gpg2-owner-trust", "${GPG2_OWNER_TRUST}", "--gpg-key-id", "${GPG_KEY_ID}", "--user-name", "${USER_NAME}", "--user-email", "${USER_EMAL}", "--origin-id-rsa", "${ORIGIN_ID_RSA}", "--origin-organization", "${SECRETS_ORIGIN_ORGANIZATION}", "--origin-repository", "${SECRETS_ORIGIN_REPOSITORY}"]
+    labels:
+      expiry: "${EXPIRY}"
   commander.main:
     image: nextmoose/commander:scratch_dd6d1e7f-3841-4ba3-9207-63d3683fd0fa
     networks:
