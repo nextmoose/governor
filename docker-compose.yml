@@ -35,7 +35,7 @@ services:
       GPG2_SECRET_KEY:
       GPG_OWNER_TRUST:
       GPG2_OWNER_TRUST:
-    command: ["--project-name", "secret-editor.main", "--cloud9-port", "14918", "--extension", "--gpg-key-id", "${GPG_KEY_ID}", "--user-name", "${USER_NAME}", "--user-email", "${USER_EMAL}", "--origin-id-rsa", "${ORIGIN_ID_RSA}", "--origin-organization", "${SECRETS_ORIGIN_ORGANIZATION}", "--origin-repository", "${SECRETS_ORIGIN_REPOSITORY}"]
+    command: ["--project-name", "secret-editor.main", "--cloud9-port", "14918", "--extension", "--gpg-key-id", "${GPG_KEY_ID}", "--user-name", "${USER_NAME}", "--user-email", "${USER_EMAIL}", "--origin-id-rsa", "${ORIGIN_ID_RSA}", "--origin-organization", "${SECRETS_ORIGIN_ORGANIZATION}", "--origin-repository", "${SECRETS_ORIGIN_REPOSITORY}"]
     labels:
       expiry: "${EXPIRY}"
   commander.main:
