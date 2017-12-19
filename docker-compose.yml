@@ -30,7 +30,7 @@ services:
       main:
         aliases:
           - commander.main
-    command: ["--project-name", "secret-editor.main", "--cloud9-port", "14918", "--extension", "--gpg-secret-key", "${GPG_SECRET_KEY}", "--gpg2-secret-key", "${GPG2_SECRET_KEY}", "--gpg-key-id", "${GPG_KEY_ID}", "--user-name", "${USER_NAME}", "--user-email", "${USER_EMAIL}", "--origin-id-rsa", "${ORIGIN_ID_RSA}", "--origin-organization", "${SECRETS_ORIGIN_ORGANIZATION}", "--origin-repository", "${SECRETS_ORIGIN_REPOSITORY}"]
+    command: ["--project-name", "secret-editor.main", "--cloud9-port", "14918", "--extension", "--gpg-secret-key", "${GPG_SECRET_KEY}", "--gpg2-secret-key", "${GPG2_SECRET_KEY}", "--gpg-key-id", "${GPG_KEY_ID}", "--user-name", "${USER_NAME}", "--user-email", "${USER_EMAIL}", "--origin-id-rsa", "${ORIGIN_ID_RSA}", "--origin-organization", "${SECRETS_ORIGIN_ORGANIZATION}", "--origin-repository", "${SECRETS_ORIGIN_REPOSITORY}", "--host-name", "github.com", "--host-port", "22"]
     labels:
       expiry: "${EXPIRY}"
   commander.main:
