@@ -16,5 +16,5 @@ apk update &&
     pass git fetch origin master &&
     pass git checkout origin/master &&
     cp /opt/docker/pre-commit.sh /home/user/.password-store/.git/hooks/pre-commit &&
-    chmod 0500 /home/user/.password-store/.git/hooks/pre-commit &&
+    chmod 0500 ${HOME}/.password-store/.git/hooks/pre-commit &&
     bash
