@@ -3,7 +3,7 @@ COPY docker-compose.yml entrypoint.sh secret-viewer.sh /opt/docker/
 RUN \
     apk update && \
         apk upgrade && \
-        apk add --no-cache gnupg findutils && \
+        apk add --no-cache git gnupg findutils && \
         rm -rf /var/cache/apk/*
 WORKDIR /opt/docker
 ENTRYPOINT ["sh", "/opt/docker/entrypoint.sh"]

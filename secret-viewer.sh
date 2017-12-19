@@ -1,6 +1,11 @@
 #!/bin/sh
 
-pass init ${GPG_KEY_ID} &&
+mkdir ${HOME}/opt &&
+    cd ${HOME}/opt &&
+    git clone https://git.zx2c4.com/password-store &&
+    export PATH=${HOME}/opt:${PATH} &&
+    echo "PATH=\${HOME}/opt:\${PATH}" >> ${HOME}/.bashrc &&
+    pass init ${GPG_KEY_ID} &&
     pass git init &&
     pass git config user.name "${USER_NAME}" &&
     pass git config user.email "${USER_EMAIL}" &&
