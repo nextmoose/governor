@@ -15,6 +15,6 @@ apk update &&
     pass git remote add origin https://${SECRETS_HOST_NAME}:${SECRETS_HOST_PORT}/${SECRETS_ORIGIN_ORGANIZATION}/${SECRETS_ORIGIN_REPOSITORY}.git &&
     pass git fetch origin master &&
     pass git checkout origin/master &&
-    cp /opt/docker/pre-commit.sh /home/user/.password-store/.git/hooks/pre-commit &&
+    cp /opt/docker/pre-commit.sh ${HOME}/.password-store/.git/hooks/pre-commit &&
     chmod 0500 ${HOME}/.password-store/.git/hooks/pre-commit &&
     bash
