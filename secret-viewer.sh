@@ -5,8 +5,6 @@ mkdir ${HOME}/opt &&
     git clone https://git.zx2c4.com/password-store &&
     cd ${HOME}/opt/password-store &&
     make install &&
-    export PATH=${HOME}/opt:${PATH} &&
-    echo "PATH=\${HOME}/opt:\${PATH}" >> ${HOME}/.bashrc &&
     pass init ${GPG_KEY_ID} &&
     pass git init &&
     pass git config user.name "${USER_NAME}" &&
@@ -14,6 +12,6 @@ mkdir ${HOME}/opt &&
     pass git remote add origin https://${HOST_NAME}:${HOST_PORT}/${ORIGIN_ORGANIZATION}/${ORIGIN_REPOSITORY}.git &&
     pass git fetch origin master &&
     pass git checkout origin/master &&
-    cp /opt/docker/extension/pre-commit.sh /home/user/.password-store/.git/hooks/pre-commit &&
+    cp /opt/docker/pre-commit.sh /home/user/.password-store/.git/hooks/pre-commit &&
     chmod 0500 /home/user/.password-store/.git/hooks/pre-commit &&
     bash
