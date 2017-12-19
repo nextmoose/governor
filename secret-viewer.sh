@@ -3,6 +3,10 @@
 apk update &&
     apk upgrade &&
     apk add --no-cache tree &&
+    echo "${GPG_SECRET_KEY}" > /tmp/gpg_secret_key &&
+    gpg --batch --import /tmp/gpg_secret_key &&
+    echo "${GPG_OWNER_TRUST}" > /tmp/gpg_owner_trust &&
+    gpg --batch --import-ownertrust /tmp/gpg_owner_trust &&
     mkdir ${HOME}/opt &&
     cd ${HOME}/opt &&
     git clone https://git.zx2c4.com/password-store &&
