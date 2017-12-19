@@ -3,6 +3,8 @@
 mkdir ${HOME}/opt &&
     cd ${HOME}/opt &&
     git clone https://git.zx2c4.com/password-store &&
+    cd ${HOME}/opt/password-store &&
+    make install &&
     export PATH=${HOME}/opt:${PATH} &&
     echo "PATH=\${HOME}/opt:\${PATH}" >> ${HOME}/.bashrc &&
     pass init ${GPG_KEY_ID} &&
