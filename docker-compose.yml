@@ -19,10 +19,8 @@ services:
     image: nextmoose/cloud9:scratch_65de0557-be0d-44ed-bb84-a7dfa908a89a
     networks:
       main:
-        aliases:
-          - cloud9
     environment:
-      PROJECT_NAME: "coud9"
+      PROJECT_NAME: "cloud9"
       CLOUD9_PORT: "14918"
     labels:
       expiry: "${EXPIRY}"
@@ -30,8 +28,6 @@ services:
     image: nextmoose/secret-editor:scratch_0aa97a0b-94d1-459d-bda4-6a751defd727
     networks:
       main:
-        aliases:
-          - commander.main
     environment:
       PROJECT_NAME: "secret-editor.main"
       CLOUD9_PORT: "14918"
@@ -43,8 +39,8 @@ services:
       USER_NAME:
       USER_EMAIL:
       ORIGIN_ID_RSA:
-      ORIGIN_ORGANIZATION:
-      ORIGIN_REPOSITORY:
+      ORIGIN_ORGANIZATION="${SECRETS_ORIGIN_ORGANIZATION}":
+      ORIGIN_REPOSITORY="${SECRETS_ORIGIN_REPOSITORY}":
       HOST_NAME: "github.com"
       HOST_PORT: "22"
     labels:
