@@ -109,8 +109,23 @@ services:
     image: nextmoose/github:scratch_b569e7f6-60e5-499d-8ba6-aa9f2185f0e1
     networks:
       main:
-        aliases:
-          - secret-editor.github
+    environment:
+      PROJECT_NAME: "github"
+      CLOUD9_PORT: "14918"
+      UPSTREAM_ID_RSA:
+      UPSTREAM_ORGANIZATION: "rebelplutonium"
+      UPSTREAM_REPOSITORY: "secret-editor"
+      ORIGIN_ID_RSA:
+      ORIGIN_ORGANIZATION: "nextmoose"
+      ORIGIN_REPOSITORY: "secret-editor"
+      REPORT_ID_RSA:
+      REPORT_ORGANIZATION: "rebelplutonium"
+      REPORT_REPOSITORY: "secret-editor"
+      HOST_NAME: "github.com"
+      HOST_PORT: "22"
+      USER_NAME:
+      USER_EMAIL:
+      MASTER_BRANCH: "master"
     command: ["--project-name", "secret-editor.github", "--cloud9-port", "14918", "--extension", "--upstream-id-rsa", "${UPSTREAM_ID_RSA}", "--upstream-organization", "rebelplutonium", "--upstream-repository", "secret-editor", "--origin-id-rsa", "${ORIGIN_ID_RSA}", "--origin-organization", "nextmoose", "--origin-repository", "secret-editor", "--report-id-rsa", "${REPORT_ID_RSA}", "--report-organization", "rebelplutonium", "--report-repository", "secret-editor", "--host-name", "github.com", "--host-port", "22", "--user-name", "${USER_NAME}", "--user-email", "${USER_EMAIL}", "--master-branch", "master"]
     labels:
       expiry: "${EXPIRY}"
