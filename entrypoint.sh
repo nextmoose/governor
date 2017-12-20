@@ -25,7 +25,7 @@ cleanup() {
     export REPORT_ID_RSA=$(pass show ssh-keys/github/report/private) &&
     export AWS_DEFAULT_REGION=$(pass show aws/aws-default-region) &&
     export AWS_ACCESS_KEY_ID=$(pass show aws/aws-access-key-id) &&
-    export AWS_SECRET_ACCESS_KEY=$(pass show aws/secret-access-key) &&
+    export AWS_SECRET_ACCESS_KEY=$(pass show aws/aws-secret-access-key) &&
     export SECRETS_ORIGIN_ORGANIZATION &&
     export SECRETS_ORIGIN_REPOSITORY &&
     docker-compose up -d &&
