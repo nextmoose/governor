@@ -13,6 +13,8 @@ cleanup() {
     rm -rf ${TEMP} &&
     export REPORT_ID_RSA=$(pass ssh-keys/github/upstream/id_rsa)
     docker-compose pull &&
+    export SECRETS_ORIGIN_ORGANIZATION &&
+    export SECRETS_ORIGIN_REPOSITORY &&
     docker-compose up -d &&
     pass init ${GPG_KEY_ID} &&
     pass git init &&
