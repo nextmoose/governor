@@ -79,7 +79,7 @@ services:
       HOST_PORT: "22"
       USER_NAME:
       USER_EMAIL:
-      MASTER_BRANCH:
+      MASTER_BRANCH: "master"
     labels:
       expiry: "${EXPIRY}"
   governor.github:
