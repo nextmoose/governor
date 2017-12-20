@@ -11,11 +11,6 @@ cleanup() {
     echo "${GPG_OWNER_TRUST}" > ${TEMP}/gpg_owner_trust &&
     gpg --batch --import-ownertrust ${TEMP}/gpg_owner_trust &&
     rm -rf ${TEMP} &&
-    export REPORT_ID_RSA=$(pass show ssh-keys/github/report/private) &&
-    docker-compose pull &&
-    export SECRETS_ORIGIN_ORGANIZATION &&
-    export SECRETS_ORIGIN_REPOSITORY &&
-    docker-compose up -d &&
     pass init ${GPG_KEY_ID} &&
     pass git init &&
     pass git config user.name "${USER_NAME}" &&
@@ -25,6 +20,11 @@ cleanup() {
     pass git checkout origin/master &&
     cp /opt/docker/pre-commit.sh ${HOME}/.password-store/.git/hooks/pre-commit &&
     chmod 0500 ${HOME}/.password-store/.git/hooks/pre-commit &&
+    export REPORT_ID_RSA=$(pass show ssh-keys/github/report/private) &&
+    docker-compose pull &&
+    export SECRETS_ORIGIN_ORGANIZATION &&
+    export SECRETS_ORIGIN_REPOSITORY &&
+    docker-compose up -d &&
     bash &&
     docker-compose stop &&
     docker-compose rm -fv
