@@ -21,6 +21,7 @@ cleanup() {
     cp /opt/docker/pre-commit.sh ${HOME}/.password-store/.git/hooks/pre-commit &&
     chmod 0500 ${HOME}/.password-store/.git/hooks/pre-commit &&
     export REPORT_ID_RSA=$(pass show ssh-keys/github/report/private) &&
+    export AWS_DEFAULT_REGION=$(pass show aws/aws-default-region) &&
     docker-compose pull &&
     export SECRETS_ORIGIN_ORGANIZATION &&
     export SECRETS_ORIGIN_REPOSITORY &&
