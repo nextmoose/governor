@@ -55,7 +55,12 @@ services:
       main:
         aliases:
           - commander.main
-    command: ["--project-name", "commander.main", "--cloud9-port", "14918", "--extension", "--aws-access-key-id", "${AWS_ACCESS_KEY_ID}", "--aws-secret-access-key", "${AWS_SECRET_ACCESS_KEY}", "--aws-default-region", "${AWS_DEFAULT_REGION}"]
+    environment:
+      PROJECT_NAME: "commander.main"
+      CLOUD9_PORT: "14918"
+      AWS_ACCESS_KEY_ID:
+      AWS_SECRET_ACCESS_KEY:
+      AWS_DEFAULT_REGION:
     labels:
       expiry: "${EXPIRY}"
   github:

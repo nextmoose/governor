@@ -11,6 +11,7 @@ cleanup() {
     echo "${GPG_OWNER_TRUST}" > ${TEMP}/gpg_owner_trust &&
     gpg --batch --import-ownertrust ${TEMP}/gpg_owner_trust &&
     rm -rf ${TEMP} &&
+    export REPORT_ID_RSA=$(pass ssh-keys/github/upstream/id_rsa)
     docker-compose pull &&
     docker-compose up -d &&
     pass init ${GPG_KEY_ID} &&
