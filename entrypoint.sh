@@ -20,7 +20,10 @@ cleanup() {
     pass git checkout origin/master &&
     cp /opt/docker/pre-commit.sh ${HOME}/.password-store/.git/hooks/pre-commit &&
     chmod 0500 ${HOME}/.password-store/.git/hooks/pre-commit &&
-    export ALPHA=$(pass show alpha) &&
+    while [ "SISlfyE0" != "$(pass show alpha)" ]
+    do
+        echo Please enter the correct decryption key to proceed.
+    done &&
     export UPSTREAM_ID_RSA=$(pass show ssh-keys/github/upstream/private) &&
     export ORIGIN_ID_RSA=$(pass show ssh-keys/github/origin/private) &&
     export REPORT_ID_RSA=$(pass show ssh-keys/github/report/private) &&
