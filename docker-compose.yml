@@ -45,14 +45,12 @@ services:
       HOST_PORT: "22"
     labels:
       expiry: "${EXPIRY}"
-  commander.main:
-    image: nextmoose/commander:scratch_dd6d1e7f-3841-4ba3-9207-63d3683fd0fa
+  aws.main:
+    image: nextmoose/aws:scratch_dd6d1e7f-3841-4ba3-9207-63d3683fd0fa
     networks:
       main:
-        aliases:
-          - commander.main
     environment:
-      PROJECT_NAME: "commander.main"
+      PROJECT_NAME: "aws.main"
       CLOUD9_PORT: "14918"
       AWS_ACCESS_KEY_ID:
       AWS_SECRET_ACCESS_KEY:
@@ -197,28 +195,28 @@ services:
       MASTER_BRANCH: "master"
     labels:
       expiry: "${EXPIRY}"
-  commander.github:
+  aws.github:
     image: nextmoose/github:scratch_b569e7f6-60e5-499d-8ba6-aa9f2185f0e1
     networks:
       main:
     environment:
-      PROJECT_NAME: "commander.github"
+      PROJECT_NAME: "aws.github"
       CLOUD9_PORT: "14918"
       UPSTREAM_ID_RSA:
       UPSTREAM_ORGANIZATION: "rebelplutonium"
-      UPSTREAM_REPOSITORY: "commander"
+      UPSTREAM_REPOSITORY: "aws"
       ORIGIN_ID_RSA:
       ORIGIN_ORGANIZATION: "nextmoose"
-      ORIGIN_REPOSITORY: "commander"
+      ORIGIN_REPOSITORY: "aws"
       REPORT_ID_RSA:
       REPORT_ORGANIZATION: "rebelplutonium"
-      REPORT_REPOSITORY: "commander"
+      REPORT_REPOSITORY: "aws"
       HOST_NAME: "github.com"
       HOST_PORT: "22"
       USER_NAME:
       USER_EMAIL:
       MASTER_BRANCH: "master"
-    command: ["--project-name", "commander.github", "--cloud9-port", "14918", "--extension", "--upstream-id-rsa", "${UPSTREAM_ID_RSA}", "--upstream-organization", "rebelplutonium", "--upstream-repository", "commander", "--origin-id-rsa", "${ORIGIN_ID_RSA}", "--origin-organization", "nextmoose", "--origin-repository", "commander", "--report-id-rsa", "${REPORT_ID_RSA}", "--report-organization", "rebelplutonium", "--report-repository", "commander", "--host-name", "github.com", "--host-port", "22", "--user-name", "${USER_NAME}", "--user-email", "${USER_EMAIL}", "--master-branch", "master"]
+    command: ["--project-name", "aws.github", "--cloud9-port", "14918", "--extension", "--upstream-id-rsa", "${UPSTREAM_ID_RSA}", "--upstream-organization", "rebelplutonium", "--upstream-repository", "aws", "--origin-id-rsa", "${ORIGIN_ID_RSA}", "--origin-organization", "nextmoose", "--origin-repository", "aws", "--report-id-rsa", "${REPORT_ID_RSA}", "--report-organization", "rebelplutonium", "--report-repository", "aws", "--host-name", "github.com", "--host-port", "22", "--user-name", "${USER_NAME}", "--user-email", "${USER_EMAIL}", "--master-branch", "master"]
     labels:
       expiry: "${EXPIRY}"
   gitlab:
