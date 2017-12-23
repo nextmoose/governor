@@ -114,6 +114,29 @@ services:
       MASTER_BRANCH: "master"
     labels:
       expiry: "${EXPIRY}"
+  lieutenant.github:
+    image: nextmoose/github:scratch_b569e7f6-60e5-499d-8ba6-aa9f2185f0e1
+    networks:
+      main:
+    environment:
+      PROJECT_NAME: "lieutenant.github"
+      CLOUD9_PORT: "14918"
+      UPSTREAM_ID_RSA:
+      UPSTREAM_ORGANIZATION: "rebelplutonium"
+      UPSTREAM_REPOSITORY: "lieutenant"
+      ORIGIN_ID_RSA:
+      ORIGIN_ORGANIZATION: "nextmoose"
+      ORIGIN_REPOSITORY: "lieutenant"
+      REPORT_ID_RSA:
+      REPORT_ORGANIZATION: "rebelplutonium"
+      REPORT_REPOSITORY: "lieutenant"
+      HOST_NAME: "github.com"
+      HOST_PORT: "22"
+      USER_NAME:
+      USER_EMAIL:
+      MASTER_BRANCH: "master"
+    labels:
+      expiry: "${EXPIRY}"
   secret-editor.github:
     image: nextmoose/github:scratch_b569e7f6-60e5-499d-8ba6-aa9f2185f0e1
     networks:
