@@ -24,6 +24,16 @@ services:
       CLOUD9_PORT: "14918"
     labels:
       expiry: "${EXPIRY}"
+  hacker.main:
+    image: nextmoose/cloud9:scratch_65de0557-be0d-44ed-bb84-a7dfa908a89a
+    networks:
+      main:
+    environment:
+      PROJECT_NAME: "hacker.main"
+      CLOUD9_PORT: "14918"
+      LIEUTENANT_PRIVATE_KEY:
+    labels:
+      expiry: "${EXPIRY}"
   secret-editor.main:
     image: nextmoose/secret-editor:scratch_0aa97a0b-94d1-459d-bda4-6a751defd727
     networks:
