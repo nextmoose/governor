@@ -66,6 +66,7 @@ services:
       AWS_SECRET_ACCESS_KEY:
       AWS_DEFAULT_REGION:
       LIEUTENANT_PUBLIC_KEY:
+      VOLUMES_BACKUP_PUBLIC_KEY:
     labels:
       expiry: "${EXPIRY}"
   github:
