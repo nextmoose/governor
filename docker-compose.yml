@@ -142,7 +142,7 @@ services:
     networks:
       main:
     environment:
-      PROJECT_NAME: "github"
+      PROJECT_NAME: "secret-editor.github"
       CLOUD9_PORT: "14918"
       UPSTREAM_ID_RSA:
       UPSTREAM_ORGANIZATION: "rebelplutonium"
