@@ -32,6 +32,7 @@ services:
       PROJECT_NAME: "hacker.main"
       CLOUD9_PORT: "14918"
       LIEUTENANT_PRIVATE_KEY:
+      VOLUMES_BACKUP_PRIVATE_KEY:
     labels:
       expiry: "${EXPIRY}"
   secret-editor.main:
@@ -108,6 +109,29 @@ services:
       REPORT_ID_RSA:
       REPORT_ORGANIZATION: "rebelplutonium"
       REPORT_REPOSITORY: "governor"
+      HOST_NAME: "github.com"
+      HOST_PORT: "22"
+      USER_NAME:
+      USER_EMAIL:
+      MASTER_BRANCH: "master"
+    labels:
+      expiry: "${EXPIRY}"
+  hacker.github:
+    image: nextmoose/github:scratch_b569e7f6-60e5-499d-8ba6-aa9f2185f0e1
+    networks:
+      main:
+    environment:
+      PROJECT_NAME: "hacker.github"
+      CLOUD9_PORT: "14918"
+      UPSTREAM_ID_RSA:
+      UPSTREAM_ORGANIZATION: "rebelplutonium"
+      UPSTREAM_REPOSITORY: "hacker"
+      ORIGIN_ID_RSA:
+      ORIGIN_ORGANIZATION: "nextmoose"
+      ORIGIN_REPOSITORY: "hacker"
+      REPORT_ID_RSA:
+      REPORT_ORGANIZATION: "rebelplutonium"
+      REPORT_REPOSITORY: "hacker"
       HOST_NAME: "github.com"
       HOST_PORT: "22"
       USER_NAME:
