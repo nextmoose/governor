@@ -32,8 +32,8 @@ cleanup() {
     export AWS_SECRET_ACCESS_KEY=$(pass show aws/aws-secret-access-key) &&
     export LIEUTENANT_PUBLIC_KEY=$(pass show ssh-keys/lieutenant/ec2/public) &&
     export LIEUTENANT_PRIVATE_KEY=$(pass show ssh-keys/lieutenant/ec2/private) &&
-    export VOLUMES_BACKUP_PUBLIC_KEY=$(pass show ssh-keys/backup-volumes/ec2/public) &&
-    export VOLUMES_BACKUP_PRIVATE_KEY=$(pass show ssh-keys/backup-volumes/ec2/private) &&
+    export VOLUMES_BACKUP_PUBLIC_KEY=$(pass show ssh-keys/volumes-backup/ec2/public) &&
+    export VOLUMES_BACKUP_PRIVATE_KEY=$(pass show ssh-keys/volumes-backup/ec2/private) &&
     export SECRETS_ORIGIN_ORGANIZATION &&
     export SECRETS_ORIGIN_REPOSITORY &&
     docker-compose pull &&
