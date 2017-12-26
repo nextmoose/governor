@@ -25,7 +25,7 @@ services:
     labels:
       expiry: "${EXPIRY}"
   hacker.main:
-    image: nextmoose/cloud9:scratch_65de0557-be0d-44ed-bb84-a7dfa908a89a
+    image: nextmoose/hacker:scratch_c881ca8e-0897-49ab-b960-bcaf6935631d
     networks:
       main:
     environment:
