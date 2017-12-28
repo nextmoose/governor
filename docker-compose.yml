@@ -73,6 +73,7 @@ services:
       VOLUMES_BACKUP_PUBLIC_KEY:
       LIEUTENANT_PRIVATE_KEY:
       VOLUMES_BACKUP_PRIVATE_KEY:
+      HACKER_2_LIEUTENANT_PUBLIC_KEY:
     labels:
       expiry: "${EXPIRY}"
   github:
