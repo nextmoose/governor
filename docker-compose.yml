@@ -59,6 +59,27 @@ services:
       HOST_PORT: "22"
     labels:
       expiry: "${EXPIRY}"
+  personal-secret-editor.main:
+    image: nextmoose/secret-editor:scratch_0aa97a0b-94d1-459d-bda4-6a751defd727
+    networks:
+      main:
+    environment:
+      PROJECT_NAME: "secret-editor.main"
+      CLOUD9_PORT: "14918"
+      GPG_SECRET_KEY:
+      GPG2_SECRET_KEY:
+      GPG_OWNER_TRUST:
+      GPG2_OWNER_TRUST:
+      GPG_KEY_ID:
+      USER_NAME:
+      USER_EMAIL:
+      ORIGIN_ID_RSA:
+      ORIGIN_ORGANIZATION: "desertedscorpion"
+      ORIGIN_REPOSITORY: "passwordstore"
+      HOST_NAME: "github.com"
+      HOST_PORT: "22"
+    labels:
+      expiry: "${EXPIRY}"
   aws.main:
     image: nextmoose/aws:scratch_dd6d1e7f-3841-4ba3-9207-63d3683fd0fa
     networks:
