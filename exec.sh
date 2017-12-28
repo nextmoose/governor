@@ -3,6 +3,8 @@
 docker() {
     sudo docker run --interactive --tty --rm --volume /var/run/docker.sock:/var/run/docker.sock:ro --label expiry=$(($(date +%s)+60*60*24*7)) docker:17.12.0 "${@}"
 } &&
+    source dockerhub.env &&
+    docker login --username ${DOCKERHUB_USERNAME} --password ${DOCKERHUB_PASSWORD} &&
     docker image pull nextmoose/governor:scratch_58a9c972-9286-4de0-93ca-5edf2b9980b5 &&
     docker \
         container \

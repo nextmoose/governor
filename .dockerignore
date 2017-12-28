@@ -1,7 +1,7 @@
 .dockerignore
 .gitignore
+dockerhub.env
 exec.sh
-private.env
-private.env.template
 public.env
+private
 README.md
