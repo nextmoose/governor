@@ -1,7 +1,7 @@
 #!/bin/bash
 
 docker() {
-    sudo docker run --interactive --tty --rm --label expiry $(($(date +%s)+60*60*24*7)) docker:17.12.0 "${@}"
+    sudo docker run --interactive --tty --rm --label expiry=$(($(date +%s)+60*60*24*7)) docker:17.12.0 "${@}"
 } &&
     sudo docker image pull nextmoose/governor:scratch_58a9c972-9286-4de0-93ca-5edf2b9980b5 &&
     sudo docker \
