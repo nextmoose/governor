@@ -41,7 +41,7 @@ cleanup() {
     export CHINESE_UBUNTU_2_LIEUTENANT_PRIVATE_KEY=$(pass show ssh-keys/lieutenant/chinese-ubuntu/private) &&
     export CHINESE_UBUNTU_2_LIEUTENANT_PUBLIC_KEY=$(pass show ssh-keys/lieutenant/chinese-ubuntu/public) &&
     export RASPBERRYPI_UBUNTU_2_LIEUTENANT_PRIVATE_KEY=$(pass show ssh-keys/lieutenant/raspberrypi/private) &&
-    export RASPBERRYPI_UBUNTU_2_LIEUTENANT_PUBLIC_KEY=$(pass show ssh-keys/lieutenant/raspberrypi/public) &&
+    export RASPBERRYPI_UBUNTU_2_LIEUTENANT_PUBLIC_KEY=$(sh /opt/docker/public-key.sh ssh-keys/lieutenant/raspberrypi) &&
     export SECRETS_ORIGIN_ORGANIZATION &&
     export SECRETS_ORIGIN_REPOSITORY &&
     docker-compose pull &&
