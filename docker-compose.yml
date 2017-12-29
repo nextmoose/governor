@@ -12,7 +12,7 @@ services:
       - "/tmp/.X11-unix:/tmp/.X11-unix:ro"
     networks:
       main:
-    command: ["http://cloud9:14918"]
+    command: ["http://personal-secret-editor:14918"]
     labels:
       expiry: "${EXPIRY}"
   cloud9:
