@@ -64,7 +64,7 @@ services:
     networks:
       main:
     environment:
-      PROJECT_NAME: "personal-secret-editor.main"
+      PROJECT_NAME: "mysecrets"
       CLOUD9_PORT: "14918"
       GPG_SECRET_KEY:
       GPG2_SECRET_KEY:
