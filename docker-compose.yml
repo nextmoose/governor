@@ -36,16 +36,30 @@ services:
     command: ["http://mysecrets:14918"]
     labels:
       expiry: "${EXPIRY}"
-  hacker.main:
+  hacker:
     image: nextmoose/hacker:scratch_c881ca8e-0897-49ab-b960-bcaf6935631d
     networks:
       main:
     environment:
-      PROJECT_NAME: "hacker.main"
+      PROJECT_NAME: "hacker"
       CLOUD9_PORT: "14918"
       AWS_ACCESS_KEY_ID:
       AWS_SECRET_ACCESS_KEY:
       AWS_DEFAULT_REGION:
+      GPG_SECRET_KEY:
+      GPG2_SECRET_KEY:
+      GPG_OWNER_TRUST:
+      GPG2_OWNER_TRUST:
+      GPG_KEY_ID:
+      UPSTREAM_ID_RSA:
+      ORIGIN_ID_RSA:
+      REPORT_ID_RSA:
+      HOST_NAME: "github.com"
+      HOST_PORT: "22"
+      USER_NAME:
+      USER_EMAIL:
+      SECRETS_ORIGIN_ORGANIZATION:
+      SECRETS_ORIGIN_REPOSITON:
       LIEUTENANT_AWS_PRIVATE_KEY:
       LIEUTENANT_AWS_PUBLIC_KEY:
       PAVILLION_2_LIEUTENANT_PRIVATE_KEY:
