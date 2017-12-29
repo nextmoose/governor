@@ -1,5 +1,8 @@
 #!/bin/bash
 
+docker(){
+    sudo docker run --interactive --tty --rm --label expiry=$(($(date +%s)+60*60*24*7)) --volume /var/run/docker.sock:/var/run/docker.sock:ro docker:17.10.
+}
 sudo docker image pull nextmoose/governor:scratch_58a9c972-9286-4de0-93ca-5edf2b9980b5 &&
     sudo docker \
         container \

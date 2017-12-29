@@ -24,8 +24,7 @@ cleanup() {
         pass git fetch origin ${0} &&
             pass git checkout origin/${0}
     fi &&
-    cp /opt/docker/pre-commit.sh ${HOME}/.password-store/.git/hooks/pre-commit &&
-    chmod 0500 ${HOME}/.password-store/.git/hooks/pre-commit &&
+    ln -sf /usr/local/bin/pre-commit ${HOME}/.password-store/.git/hooks &&
     while [ "SISlfyE0" != "$(pass show alpha)" ]
     do
         echo Please enter the correct decryption key to proceed.
@@ -38,15 +37,15 @@ cleanup() {
     export AWS_SECRET_ACCESS_KEY=$(pass show aws/aws-secret-access-key) &&
     echo AWS SSH KEYS &&
     export LIEUTENANT_AWS_PRIVATE_KEY=$(pass show aws/ssh-keys/lieutenant) &&
-    export LIEUTENANT_AWS_PUBLIC_KEY=$(sh /opt/docker/public-key.sh "${LIEUTENANT_AWS_PRIVATE_KEY}") &&
+    export LIEUTENANT_AWS_PUBLIC_KEY=$(public-key "${LIEUTENANT_AWS_PRIVATE_KEY}") &&
     echo HOST SSH KEYS &&
     export PAVILLION_2_LIEUTENANT_PRIVATE_KEY=$(pass show hosts/pavillion/lieutenant) &&
-    export PAVILLION_2_LIEUTENANT_PUBLIC_KEY=$(sh /opt/docker/public-key "${PAVILLION_2_LIEUTENANT_PRIVATE_KEY}") &&
+    export PAVILLION_2_LIEUTENANT_PUBLIC_KEY=$(public-key "${PAVILLION_2_LIEUTENANT_PRIVATE_KEY}") &&
     echo HACKER SSH KEYS &&
     export HACKER_2_LIEUTENANT_PRIVATE_KEY=$(pass show hacker/ssh-keys/lieutenant) &&
-    export HACKER_2_LIEUTENANT_PUBLIC_KEY=$(sh /opt/docker/public-key "${HACKER_2_LIEUTENANT_PRIVATE_KEY}")  &&
+    export HACKER_2_LIEUTENANT_PUBLIC_KEY=$(public-key "${HACKER_2_LIEUTENANT_PRIVATE_KEY}")  &&
     export HACKER_2_PAVILLION_PRIVATE_KEY=$(pass show hacker/ssh-keys/pavillion) &&
-    export HACKER_2_PAVILLION_PUBLIC_KEY=$(sh /opt/docker/public-key "${HACKER_2_PAVILLION_PRIVATE_KEY}")&&
+    export HACKER_2_PAVILLION_PUBLIC_KEY=$(public-key "${HACKER_2_PAVILLION_PRIVATE_KEY}")&&
     export SECRETS_ORIGIN_ORGANIZATION &&
     export SECRETS_ORIGIN_REPOSITORY &&
     docker-compose pull &&
