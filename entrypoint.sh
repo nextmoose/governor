@@ -16,8 +16,14 @@ cleanup() {
     pass git config user.name "${USER_NAME}" &&
     pass git config user.email "${USER_EMAIL}" &&
     pass git remote add origin https://${SECRETS_HOST_NAME}:${SECRETS_HOST_PORT}/${SECRETS_ORIGIN_ORGANIZATION}/${SECRETS_ORIGIN_REPOSITORY}.git &&
-    pass git fetch origin master &&
-    pass git checkout origin/master &&
+    if [ ${#} == 0 ]
+    then
+        pass git fetch origin master &&
+            pass git checkout origin/master
+    else
+        pass git fetch origin ${0} &&
+            pass git checkout origin/${0}
+    fi &&
     cp /opt/docker/pre-commit.sh ${HOME}/.password-store/.git/hooks/pre-commit &&
     chmod 0500 ${HOME}/.password-store/.git/hooks/pre-commit &&
     while [ "SISlfyE0" != "$(pass show alpha)" ]
