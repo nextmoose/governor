@@ -33,6 +33,7 @@ services:
       CLOUD9_PORT: "14918"
       LIEUTENANT_PRIVATE_KEY:
       VOLUMES_BACKUP_PRIVATE_KEY:
+      HACKER_2_PAVILLION_PRIVATE_KEY:
       HACKER_2_LIEUTENANT_PRIVATE_KEY:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"

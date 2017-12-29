@@ -34,6 +34,8 @@ cleanup() {
     export LIEUTENANT_PRIVATE_KEY=$(pass show ssh-keys/lieutenant/ec2/private) &&
     export VOLUMES_BACKUP_PUBLIC_KEY=$(pass show ssh-keys/volumes-backup/ec2/public) &&
     export VOLUMES_BACKUP_PRIVATE_KEY=$(pass show ssh-keys/volumes-backup/ec2/private) &&
+    export HACKER_2_PAVILLION_PRIVATE_KEY=$(pass show ssh-keys/hp-pavillion/hacker/private) &&
+    export HACKER_2_PAVILLION_PUBLIC_KEY=$(pass show ssh-keys/hp-pavillion/hacker/public) &&
     export HACKER_2_LIEUTENANT_PRIVATE_KEY=$(pass show ssh-keys/lieutenant/hacker/private) &&
     export HACKER_2_LIEUTENANT_PUBLIC_KEY=$(pass show ssh-keys/lieutenant/hacker/public) &&
     export CHINESE_UBUNTU_2_LIEUTENANT_PRIVATE_KEY=$(pass show ssh-keys/lieutenant/chinese-ubuntu/private) &&
