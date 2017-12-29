@@ -12,7 +12,7 @@ services:
       - "/tmp/.X11-unix:/tmp/.X11-unix:ro"
     networks:
       main:
-    command: ["http://cloud9:14918"]
+    command: ["http://mysecrets:14918"]
     labels:
       expiry: "${EXPIRY}"
   cloud9:
@@ -60,12 +60,12 @@ services:
       HOST_PORT: "22"
     labels:
       expiry: "${EXPIRY}"
-  personal-secret-editor.main:
+  mysecrets:
     image: nextmoose/secret-editor:scratch_0aa97a0b-94d1-459d-bda4-6a751defd727
     networks:
       main:
     environment:
-      PROJECT_NAME: "secret-editor.main"
+      PROJECT_NAME: "mysecrets"
       CLOUD9_PORT: "14918"
       GPG_SECRET_KEY:
       GPG2_SECRET_KEY:
