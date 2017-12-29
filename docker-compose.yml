@@ -2,6 +2,27 @@ version: "3.4"
 networks:
   main:
 services:
+  mysecrets:
+    image: nextmoose/secret-editor:scratch_0aa97a0b-94d1-459d-bda4-6a751defd727
+    networks:
+      main:
+    environment:
+      PROJECT_NAME: "mysecrets"
+      CLOUD9_PORT: "14918"
+      GPG_SECRET_KEY:
+      GPG2_SECRET_KEY:
+      GPG_OWNER_TRUST:
+      GPG2_OWNER_TRUST:
+      GPG_KEY_ID:
+      USER_NAME:
+      USER_EMAIL:
+      ORIGIN_ID_RSA:
+      ORIGIN_ORGANIZATION: "desertedscorpion"
+      ORIGIN_REPOSITORY: "passwordstore"
+      HOST_NAME: "github.com"
+      HOST_PORT: "22"
+    labels:
+      expiry: "${EXPIRY}"
   browser:
     image: nextmoose/browser:scratch_05e996af-8b1f-40b7-9c8c-eba269f7d0e1
     privileged: true
@@ -15,15 +36,6 @@ services:
     command: ["http://mysecrets:14918"]
     labels:
       expiry: "${EXPIRY}"
-  cloud9:
-    image: nextmoose/cloud9:scratch_65de0557-be0d-44ed-bb84-a7dfa908a89a
-    networks:
-      main:
-    environment:
-      PROJECT_NAME: "cloud9"
-      CLOUD9_PORT: "14918"
-    labels:
-      expiry: "${EXPIRY}"
   hacker.main:
     image: nextmoose/hacker:scratch_c881ca8e-0897-49ab-b960-bcaf6935631d
     networks:
@@ -35,9 +47,13 @@ services:
       AWS_SECRET_ACCESS_KEY:
       AWS_DEFAULT_REGION:
       LIEUTENANT_AWS_PRIVATE_KEY:
-      VOLUMES_BACKUP_PRIVATE_KEY:
-      HACKER_2_PAVILLION_PRIVATE_KEY:
+      LIEUTENANT_AWS_PUBLIC_KEY:
+      PAVILLION_2_LIEUTENANT_PRIVATE_KEY:
+      PAVILLION_2_LIEUTENANT_PUBLIC_KEY:
       HACKER_2_LIEUTENANT_PRIVATE_KEY:
+      HACKER_2_LIEUTENANT_PUBLIC_KEY:
+      HACKER_2_PAVILLION_PRIVATE_KEY:
+      HACKER_2_PAVILLION_PUBLIC_KEY:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
     labels:
@@ -61,67 +77,6 @@ services:
       ORIGIN_REPOSITORY: "${SECRETS_ORIGIN_REPOSITORY}"
       HOST_NAME: "github.com"
       HOST_PORT: "22"
-    labels:
-      expiry: "${EXPIRY}"
-  mysecrets:
-    image: nextmoose/secret-editor:scratch_0aa97a0b-94d1-459d-bda4-6a751defd727
-    networks:
-      main:
-    environment:
-      PROJECT_NAME: "mysecrets"
-      CLOUD9_PORT: "14918"
-      GPG_SECRET_KEY:
-      GPG2_SECRET_KEY:
-      GPG_OWNER_TRUST:
-      GPG2_OWNER_TRUST:
-      GPG_KEY_ID:
-      USER_NAME:
-      USER_EMAIL:
-      ORIGIN_ID_RSA:
-      ORIGIN_ORGANIZATION: "desertedscorpion"
-      ORIGIN_REPOSITORY: "passwordstore"
-      HOST_NAME: "github.com"
-      HOST_PORT: "22"
-    labels:
-      expiry: "${EXPIRY}"
-  aws.main:
-    image: nextmoose/aws:scratch_dd6d1e7f-3841-4ba3-9207-63d3683fd0fa
-    networks:
-      main:
-    environment:
-      PROJECT_NAME: "aws.main"
-      CLOUD9_PORT: "14918"
-      AWS_ACCESS_KEY_ID:
-      AWS_SECRET_ACCESS_KEY:
-      AWS_DEFAULT_REGION:
-      LIEUTENANT_AWS_PUBLIC_KEY:
-      VOLUMES_BACKUP_PUBLIC_KEY:
-      LIEUTENANT_AWS_PRIVATE_KEY:
-      VOLUMES_BACKUP_PRIVATE_KEY:
-      HACKER_2_LIEUTENANT_PUBLIC_KEY:
-    labels:
-      expiry: "${EXPIRY}"
-  github:
-    image: nextmoose/github:scratch_b569e7f6-60e5-499d-8ba6-aa9f2185f0e1
-    networks:
-      main:
-    environment:
-      PROJECT_NAME: "github"
-      CLOUD9_PORT: "14918"
-      UPSTREAM_ID_RSA:
-      UPSTREAM_ORGANIZATION: "rebelplutonium"
-      UPSTREAM_REPOSITORY: "governor"
-      ORIGIN_ID_RSA:
-      ORIGIN_ORGANIZATION: "nextmoose"
-      ORIGIN_REPOSITORY: "governor"
-      REPORT_ID_RSA:
-      REPORT_ORGATENIZATION: "rebelplutonium"
-      REPORT_REPOSITORY: "governor"
-      HOST_NAME: "github.com"
-      HOST_PORT: "22"
-      USER_NAME:
-      USER_EMAIL:
-      MASTER_BRANCH: "master"
     labels:
       expiry: "${EXPIRY}"
   governor.github:
@@ -163,29 +118,6 @@ services:
       REPORT_ID_RSA:
       REPORT_ORGANIZATION: "rebelplutonium"
       REPORT_REPOSITORY: "hacker"
-      HOST_NAME: "github.com"
-      HOST_PORT: "22"
-      USER_NAME:
-      USER_EMAIL:
-      MASTER_BRANCH: "master"
-    labels:
-      expiry: "${EXPIRY}"
-  lieutenant.github:
-    image: nextmoose/github:scratch_b569e7f6-60e5-499d-8ba6-aa9f2185f0e1
-    networks:
-      main:
-    environment:
-      PROJECT_NAME: "lieutenant.github"
-      CLOUD9_PORT: "14918"
-      UPSTREAM_ID_RSA:
-      UPSTREAM_ORGANIZATION: "rebelplutonium"
-      UPSTREAM_REPOSITORY: "lieutenant"
-      ORIGIN_ID_RSA:
-      ORIGIN_ORGANIZATION: "nextmoose"
-      ORIGIN_REPOSITORY: "lieutenant"
-      REPORT_ID_RSA:
-      REPORT_ORGANIZATION: "rebelplutonium"
-      REPORT_REPOSITORY: "lieutenant"
       HOST_NAME: "github.com"
       HOST_PORT: "22"
       USER_NAME:
@@ -285,42 +217,3 @@ services:
       MASTER_BRANCH: "master"
     labels:
       expiry: "${EXPIRY}"
-  aws.github:
-    image: nextmoose/github:scratch_b569e7f6-60e5-499d-8ba6-aa9f2185f0e1
-    networks:
-      main:
-    environment:
-      PROJECT_NAME: "aws.github"
-      CLOUD9_PORT: "14918"
-      UPSTREAM_ID_RSA:
-      UPSTREAM_ORGANIZATION: "rebelplutonium"
-      UPSTREAM_REPOSITORY: "aws"
-      ORIGIN_ID_RSA:
-      ORIGIN_ORGANIZATION: "nextmoose"
-      ORIGIN_REPOSITORY: "aws"
-      REPORT_ID_RSA:
-      REPORT_ORGANIZATION: "rebelplutonium"
-      REPORT_REPOSITORY: "aws"
-      HOST_NAME: "github.com"
-      HOST_PORT: "22"
-      USER_NAME:
-      USER_EMAIL:
-      MASTER_BRANCH: "master"
-    command: ["--project-name", "aws.github", "--cloud9-port", "14918", "--extension", "--upstream-id-rsa", "${UPSTREAM_ID_RSA}", "--upstream-organization", "rebelplutonium", "--upstream-repository", "aws", "--origin-id-rsa", "${ORIGIN_ID_RSA}", "--origin-organization", "nextmoose", "--origin-repository", "aws", "--report-id-rsa", "${REPORT_ID_RSA}", "--report-organization", "rebelplutonium", "--report-repository", "aws", "--host-name", "github.com", "--host-port", "22", "--user-name", "${USER_NAME}", "--user-email", "${USER_EMAIL}", "--master-branch", "master"]
-    labels:
-      expiry: "${EXPIRY}"
-  gitlab:
-    image: gitlab/gitlab-ce:10.1.2-ce.0
-    networks:
-      main:
-        aliases:
-          - gitlab
-    labels:
-      expiry: "${EXPIRY}"
-
-
-
-
-
-
-

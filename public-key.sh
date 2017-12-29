@@ -1,6 +1,6 @@
 #!/bin/sh
 
 TEMP=$(mktemp) &&
-    pass show ${1}/private > ${TEMP} &&
+    echo "${@}" > ${TEMP} &&
     ssh-keygen -y -f ${TEMP} &&
     rm -rf ${TEMP}
