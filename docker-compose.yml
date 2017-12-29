@@ -33,7 +33,7 @@ services:
       - "/tmp/.X11-unix:/tmp/.X11-unix:ro"
     networks:
       main:
-    command: ["http://mysecrets:14918"]
+    command: ["http://hacker:14918"]
     labels:
       expiry: "${EXPIRY}"
   hacker:
