@@ -30,6 +30,10 @@ cleanup() {
     export AWS_DEFAULT_REGION=$(pass show aws/aws-default-region) &&
     export AWS_ACCESS_KEY_ID=$(pass show aws/aws-access-key-id) &&
     export AWS_SECRET_ACCESS_KEY=$(pass show aws/aws-secret-access-key) &&
+    echo SSH_KEYS AWS &&
+    export LIEUTENANT_AWS_PRIVATE_KEY=$(pass show aws/ssh-keys/lieutenant) &&
+    export LIEUTENANT_AWS_PUBLIC_KEY=$(sh /opt/docker/public-key.sh ssh-keys/lieutenant/raspberrypi "${LIEUTENANT_AWS_PRIVATE_KEY}") &&
+    echo SSH_KEYS HOST &&
     export LIEUTENANT_PUBLIC_KEY=$(pass show ssh-keys/lieutenant/ec2/public) &&
     export LIEUTENANT_PRIVATE_KEY=$(pass show ssh-keys/lieutenant/ec2/private) &&
     export VOLUMES_BACKUP_PUBLIC_KEY=$(pass show ssh-keys/volumes-backup/ec2/public) &&
