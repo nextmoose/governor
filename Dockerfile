@@ -1,5 +1,5 @@
 FROM docker/compose:1.17.1
-COPY docker-compose.yml entrypoint.sh pre-commit.sh /opt/docker/
+COPY docker-compose.yml entrypoint.sh pre-commit.sh public-key.sh /opt/docker/
 RUN \
     apk update && \
         apk upgrade && \
