@@ -3,7 +3,7 @@ COPY docker-compose.yml entrypoint.sh pre-commit.sh public-key.sh /opt/docker/
 RUN \
     apk update && \
         apk upgrade && \
-        apk add --no-cache bash make git gnupg findutils tree && \
+        apk add --no-cache bash make git gnupg findutils tree openssh-client && \
         TEMP=$(mktemp -d) && \
         cd ${TEMP} && \
         git init && \
