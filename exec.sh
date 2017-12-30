@@ -8,6 +8,7 @@ sudo docker image pull nextmoose/governor:scratch_58a9c972-9286-4de0-93ca-5edf2b
         --tty \
         --rm \
         --env-file public.env \
+        --env DISPLAY \
         --env GPG_SECRET_KEY="$(cat private/gpg_secret_key)" \
         --env GPG2_SECRET_KEY="$(cat private/gpg2_secret_key)" \
         --env GPG_OWNER_TRUST="$(cat private/gpg_owner_trust)" \

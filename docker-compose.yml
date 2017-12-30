@@ -43,6 +43,7 @@ services:
     environment:
       PROJECT_NAME: "hacker"
       CLOUD9_PORT: "14918"
+      DISPLAY:
       AWS_ACCESS_KEY_ID:
       AWS_SECRET_ACCESS_KEY:
       AWS_DEFAULT_REGION:
@@ -70,6 +71,7 @@ services:
       HACKER_2_PAVILLION_PUBLIC_KEY:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "/tmp/.X11-unix/X0:/tmp/.X11-unix/X0:ro"
     labels:
       expiry: "${EXPIRY}"
   governor.github:
