@@ -26,7 +26,7 @@ cleanup() {
     fi &&
     cp /opt/docker/pre-commit.sh ${HOME}/.password-store/.git/hooks/pre-commit &&
     chmod 0500 ${HOME}/.password-store/.git/hooks/pre-commit &&
-    while [ "SISlfyE0" != "$(pass show alpha)" ]
+    while [ "DNMtJYAN" != "$(pass show alpha)" ]
     do
         echo Please enter the correct decryption key to proceed.
     done &&
