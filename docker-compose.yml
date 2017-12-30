@@ -37,7 +37,7 @@ services:
     labels:
       expiry: "${EXPIRY}"
   hacker:
-    image: nextmoose/hacker:scratch_c881ca8e-0897-49ab-b960-bcaf6935631d
+    image: rebelplutonium/hacker:0.0.0
     networks:
       main:
     environment:
