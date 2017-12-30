@@ -26,9 +26,16 @@ cleanup() {
     fi &&
     cp /opt/docker/pre-commit.sh ${HOME}/.password-store/.git/hooks/pre-commit &&
     chmod 0500 ${HOME}/.password-store/.git/hooks/pre-commit &&
-    if [ "5XKuWcyq" != "$(pass show alpha)" ]
+    ALPHA=5XKuWcyq &&
+    ALPHA_PRIME="$(pass show alpha)" &&
+    if [ "${ALPHA}" != "${ALPHA_PRIME}" ]
     then
-        echo Please enter the correct decryption key to proceed. &&
+        echo Failed Sanity Check: &&
+            echo ALPHA= &&
+            echo ${ALPHA} &&
+            echo &&
+            echo ALPHA_PRIME= &&
+            echo ${ALPHA_PRIME} &&
             exit 64
     fi &&
     export UPSTREAM_ID_RSA=$(pass show ssh-keys.old/github/upstream/private) &&
