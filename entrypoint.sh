@@ -26,10 +26,11 @@ cleanup() {
     fi &&
     cp /opt/docker/pre-commit.sh ${HOME}/.password-store/.git/hooks/pre-commit &&
     chmod 0500 ${HOME}/.password-store/.git/hooks/pre-commit &&
-    while [ "DNMtJYAN" != "$(pass show alpha)" ]
-    do
-        echo Please enter the correct decryption key to proceed.
-    done &&
+    if [ "5XKuWcyq" != "$(pass show alpha)" ]
+    then
+        echo Please enter the correct decryption key to proceed. &&
+            exit 64
+    fi &&
     export UPSTREAM_ID_RSA=$(pass show ssh-keys.old/github/upstream/private) &&
     export ORIGIN_ID_RSA=$(pass show ssh-keys.old/github/origin/private) &&
     export REPORT_ID_RSA=$(pass show ssh-keys.old/github/report/private) &&
