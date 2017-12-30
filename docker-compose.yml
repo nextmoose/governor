@@ -79,7 +79,7 @@ services:
     labels:
       expiry: "${EXPIRY}"
   governor.github:
-    image: nextmoose/github:scratch_b569e7f6-60e5-499d-8ba6-aa9f2185f0e1
+    image: rebelplutonium/github:0.0.0
     networks:
       main:
     environment:
@@ -102,7 +102,7 @@ services:
     labels:
       expiry: "${EXPIRY}"
   hacker.github:
-    image: nextmoose/github:scratch_b569e7f6-60e5-499d-8ba6-aa9f2185f0e1
+    image: rebelplutonium/github:0.0.0
     networks:
       main:
     environment:
@@ -125,7 +125,7 @@ services:
     labels:
       expiry: "${EXPIRY}"
   secret-editor.github:
-    image: nextmoose/github:scratch_b569e7f6-60e5-499d-8ba6-aa9f2185f0e1
+    image: rebelplutonium/github:0.0.0
     networks:
       main:
     environment:
@@ -148,7 +148,7 @@ services:
     labels:
       expiry: "${EXPIRY}"
   cloud9.github:
-    image: nextmoose/github:scratch_b569e7f6-60e5-499d-8ba6-aa9f2185f0e1
+    image: rebelplutonium/github:0.0.0
     networks:
       main:
     environment:
@@ -171,7 +171,7 @@ services:
     labels:
       expiry: "${EXPIRY}"
   github.github:
-    image: nextmoose/github:scratch_b569e7f6-60e5-499d-8ba6-aa9f2185f0e1
+    image: rebelplutonium/github:0.0.0
     networks:
       main:
     environment:
@@ -194,7 +194,7 @@ services:
     labels:
       expiry: "${EXPIRY}"
   browser.github:
-    image: nextmoose/github:scratch_b569e7f6-60e5-499d-8ba6-aa9f2185f0e1
+    image: rebelplutonium/github:0.0.0
     networks:
       main:
     environment:
