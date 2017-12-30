@@ -72,27 +72,6 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
     labels:
       expiry: "${EXPIRY}"
-  secret-editor.main:
-    image: nextmoose/secret-editor:scratch_0aa97a0b-94d1-459d-bda4-6a751defd727
-    networks:
-      main:
-    environment:
-      PROJECT_NAME: "secret-editor.main"
-      CLOUD9_PORT: "14918"
-      GPG_SECRET_KEY:
-      GPG2_SECRET_KEY:
-      GPG_OWNER_TRUST:
-      GPG2_OWNER_TRUST:
-      GPG_KEY_ID:
-      USER_NAME:
-      USER_EMAIL:
-      ORIGIN_ID_RSA:
-      ORIGIN_ORGANIZATION: "${SECRETS_ORIGIN_ORGANIZATION}"
-      ORIGIN_REPOSITORY: "${SECRETS_ORIGIN_REPOSITORY}"
-      HOST_NAME: "github.com"
-      HOST_PORT: "22"
-    labels:
-      expiry: "${EXPIRY}"
   governor.github:
     image: nextmoose/github:scratch_b569e7f6-60e5-499d-8ba6-aa9f2185f0e1
     networks:
