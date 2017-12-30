@@ -69,6 +69,7 @@ services:
       HACKER_2_LIEUTENANT_PUBLIC_KEY:
       HACKER_2_PAVILLION_PRIVATE_KEY:
       HACKER_2_PAVILLION_PUBLIC_KEY:
+    privileged: true
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
       - "/tmp/.X11-unix/X0:/tmp/.X11-unix/X0:ro"
