@@ -1,13 +1,19 @@
 version: "3.4"
 networks:
   main:
+    external:
+      name: ${EXTERNAL_NETWORK_NAME}
 services:
-  cloud9:
-    image: rebelplutonium/cloud9:1.0.2
+  browser:
+    image: nextmoose/browser:scratch_05e996af-8b1f-40b7-9c8c-eba269f7d0e1
+    privileged: true
+    shm_size: "256m"
+    environment:
+      DISPLAY:
+    volumes:
+      - "/tmp/.X11-unix:/tmp/.X11-unix:ro"
     networks:
       main:
-    environment:
-      PROJECT_NAME: "cloud9"
-      CLOUD9_PORT: "14918"
+    command: ["http://governor:16842"]
     labels:
       expiry: "${EXPIRY}"
