@@ -14,6 +14,7 @@ TEMP=$(mktemp -d) &&
     pass git fetch origin master &&
     pass git checkout origin/master &&
     ln -sf /usr/local/bin ${HOME}/.password-store/.git/hooks/pre-commit &&
-    cp /opt/docker/extension/docker-compose.yml /opt/docker/workspace
+    cp /opt/docker/extension/docker-compose.yml /opt/docker/workspace &&
+    pass show alpha
 
 
