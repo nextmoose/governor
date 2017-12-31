@@ -1,7 +1,8 @@
 #!/bin/bash
 
 export EXTERNAL_NETWORK_NAME=$(uuidgen) &&
-    sudo docker network create ${EXTERNAL_NETWORK_NAME} &&
+    export EXPIRY=$(($(date +%s)+60*60*24*7)) &&
+    sudo docker network create --label expiry=${EXPIRY} ${EXTERNAL_NETWORK_NAME} &&
     cleanup(){
         sudo docker network rm ${EXTERNAL_NETWORK_NAME}
     } &&
@@ -15,7 +16,7 @@ export EXTERNAL_NETWORK_NAME=$(uuidgen) &&
         --rm \
         --name governor \
         --network ${EXTERNAL_NETWORK_NAME} \
-        --env EXTERNAL_NETWORK_NAME=${EXTERNAL_NETWORK_NAME} \
+        --env EXTERNAL_NETWORK_NAME \
         --env PROJECT_NAME=governor \
         --env CLOUD9_PORT=16842 \
         --env USER_NAME="Emory Merryman" \
@@ -29,8 +30,8 @@ export EXTERNAL_NETWORK_NAME=$(uuidgen) &&
         --env GPG2_SECRET_KEY="$(cat private/gpg2_secret_key)" \
         --env GPG_OWNER_TRUST="$(cat private/gpg_owner_trust)" \
         --env GPG2_OWNER_TRUST="$(cat private/gpg2_owner_trust)" \
-        --env EXPIRY=$(($(date +%s)+60*60*24*7)) \
-        --label expiry=$(($(date +%s)+60*60*24*7)) \
+        --env EXPIRY \
+        --label expiry=${EXPIRY} \
         --env DISPLAY \
         --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock,readonly=true \
         nextmoose/governor:scratch_fb54191d-78f2-4889-a85b-e4572dac6885
