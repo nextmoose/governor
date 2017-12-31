@@ -4,11 +4,11 @@ networks:
 services:
   cloud9:
     image: rebelplutonium/cloud9:0.0.0
-  environment:
-    PROJECT_NAME: "cloud9"
-    CLOUD9_PORT: "14918"
-  labels:
-    expiry: "${EXPIRY}"
+    environment:
+      PROJECT_NAME: "cloud9"
+      CLOUD9_PORT: "14918"
+    labels:
+      expiry: "${EXPIRY}"
   mysecrets:
     image: nextmoose/secret-editor:scratch_0aa97a0b-94d1-459d-bda4-6a751defd727
     networks:
