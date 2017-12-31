@@ -16,8 +16,9 @@ TEMP=$(mktemp -d) &&
     ln -sf /usr/local/bin ${HOME}/.password-store/.git/hooks/pre-commit &&
     sed -e "s#\${EXTERNAL_NETWORK_NAME}#${EXTERNAL_NETWORK_NAME}#" -e "w/opt/docker/workspace/docker-compose.yml" /opt/docker/extension/docker-compose.yml &&
     pass show alpha &&
-    export EXPIRY &&
+    export EXPIRY="${EXPIRY}" &&
+    echo EXPIRY="${EXPIRY}" &&
     cd /opt/docker/workspace &&
-    docker-compose up -d
+    docker-compose -d
 
 
