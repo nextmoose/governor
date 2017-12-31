@@ -14,10 +14,8 @@ TEMP=$(mktemp -d) &&
     pass git fetch origin master &&
     pass git checkout origin/master &&
     ln -sf /usr/local/bin ${HOME}/.password-store/.git/hooks/pre-commit &&
-    cp /opt/docker/extension/docker-compose.yml /opt/docker/workspace &&
+    sed -e "s#\${EXTERNAL_NETWORK_NAME}#${EXTERNAL_NETWORK_NAME}#" -e "w/opt/docker/workspace/docker-compose.yml" /opt/docker/extension/docker-compose.yml &&
     pass show alpha &&
-    echo EXTERNAL_NETWORK_NAME=${EXTERNAL_NETWORK_NAME} &&
-    export EXTERNAL_NETWORK_NAME=${EXTERNAL_NETWORK_NAME} &&
     export EXPIRY &&
     cd /opt/docker/workspace
 
