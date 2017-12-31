@@ -17,6 +17,7 @@ TEMP=$(mktemp -d) &&
     cp /opt/docker/extension/docker-compose.yml /opt/docker/workspace &&
     pass show alpha &&
     export EXPIRY &&
+    cd /opt/docker/workspace &&
     docker-compose up -d
 
 
