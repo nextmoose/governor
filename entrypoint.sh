@@ -57,7 +57,7 @@ cleanup() {
     export HACKER_2_PAVILLION_PUBLIC_KEY=$(sh /opt/docker/public-key.sh "${HACKER_2_PAVILLION_PRIVATE_KEY}")&&
     export SECRETS_ORIGIN_ORGANIZATION &&
     export SECRETS_ORIGIN_REPOSITORY &&
-    docker-compose pull &&
+    # docker-compose pull &&
     docker-compose up -d &&
     bash &&
     docker-compose stop &&
