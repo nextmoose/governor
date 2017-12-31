@@ -23,4 +23,4 @@ sudo \
     --label expiry=$(($(date +%s)+60*60*24*7)) \
     --env DISPLAY \
     --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock,readonly=true \
-    nextmoose/governor:scratch_a4b20483-f29c-44b4-a24b-f6d551b5e8e3
+    nextmoose/governor:scratch_fb54191d-78f2-4889-a85b-e4572dac6885
