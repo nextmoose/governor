@@ -2,21 +2,19 @@
 
 export EXTERNAL_NETWORK_NAME=$(uuidgen) &&
     sudo docker network create ${EXTERNAL_NETWORK_NAME} &&
-    CID=$(mktemp) &&
-    rm -f ${CID} &&
     cleanup(){
-        sudo docker container logs $(cat ${CID}) &&
-            sudo docker container stop $(cat ${CID}) &&
-            sudo docker container rm --volumes $(cat ${CID}) &&
-            sudo docker network rm ${EXTERNAL_NETWORK_NAME}
+        sudo docker network rm ${EXTERNAL_NETWORK_NAME}
     } &&
     trap cleanup EXIT &&
     sudo \
         docker \
         container \
         run \
-        --cidfile ${CID} \
-        --detach \
+        --interactive \
+        --tty \
+        --rm \
+        --name governor \
+        --network ${EXTERNAL_NETWORK_NAME}
         --env EXTERNAL_NETWORK_NAME \
         --env PROJECT_NAME=governor \
         --env CLOUD9_PORT=16842 \
@@ -35,6 +33,4 @@ export EXTERNAL_NETWORK_NAME=$(uuidgen) &&
         --label expiry=$(($(date +%s)+60*60*24*7)) \
         --env DISPLAY \
         --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock,readonly=true \
-        nextmoose/governor:scratch_fb54191d-78f2-4889-a85b-e4572dac6885 &&
-    sudo docker network connect --alias governor ${EXTERNAL_NETWORK_NAME} $(cat ${CID}) &&
-    sudo docker container exec --interactive --tty --user root $(cat ${CID}) bash
+        nextmoose/governor:scratch_fb54191d-78f2-4889-a85b-e4572dac6885
