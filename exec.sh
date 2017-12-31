@@ -16,7 +16,7 @@ export EXTERNAL_NETWORK_NAME=$(uuidgen) &&
         --rm \
         --name governor \
         --network ${EXTERNAL_NETWORK_NAME} \
-        --env EXTERNAL_NETWORK_NAME \
+        --env EXTERNAL_NETWORK_NAME=${EXTERNAL_NETWORK_NAME} \
         --env PROJECT_NAME=governor \
         --env CLOUD9_PORT=16842 \
         --env USER_NAME="Emory Merryman" \
@@ -30,7 +30,7 @@ export EXTERNAL_NETWORK_NAME=$(uuidgen) &&
         --env GPG2_SECRET_KEY="$(cat private/gpg2_secret_key)" \
         --env GPG_OWNER_TRUST="$(cat private/gpg_owner_trust)" \
         --env GPG2_OWNER_TRUST="$(cat private/gpg2_owner_trust)" \
-        --env EXPIRY \
+        --env EXPIRY=${EXPIRY} \
         --label expiry=${EXPIRY} \
         --env DISPLAY \
         --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock,readonly=true \
