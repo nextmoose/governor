@@ -36,4 +36,4 @@ export EXTERNAL_NETWORK_NAME=$(uuidgen) &&
         --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock,readonly=true \
         nextmoose/governor:scratch_fb54191d-78f2-4889-a85b-e4572dac6885 &&
     sudo docker network connect --alias governor ${EXTERNAL_NETWORK_NAME} $(cat ${CID}) &&
-    bash
+    sudo docker container exec --interactive --tty --user root $(cat ${CID}) bash
