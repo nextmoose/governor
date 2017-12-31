@@ -32,27 +32,27 @@ services:
       HOST_PORT: "22"
     labels:
       expiry: "${EXPIRY}"
-  # mysecrets.testing:
-  #   image: nextmoose/secret-editor:scratch_6007a52c-0a09-4cf2-b2fc-a782241102aa
-  #   networks:
-  #     main:
-  #   environment:
-  #     PROJECT_NAME: "mysecrets"
-  #     CLOUD9_PORT: "14918"
-  #     GPG_SECRET_KEY:
-  #     GPG2_SECRET_KEY:
-  #     GPG_OWNER_TRUST:
-  #     GPG2_OWNER_TRUST:
-  #     GPG_KEY_ID:
-  #     USER_NAME:
-  #     USER_EMAIL:
-  #     ORIGIN_ID_RSA:
-  #     ORIGIN_ORGANIZATION: "desertedscorpion"
-  #     ORIGIN_REPOSITORY: "passwordstore"
-  #     HOST_NAME: "github.com"
-  #     HOST_PORT: "22"
-  #   labels:
-  #     expiry: "${EXPIRY}"
+  mysecrets.testing:
+    image: nextmoose/secret-editor:scratch_6007a52c-0a09-4cf2-b2fc-a782241102aa
+    networks:
+      main:
+    environment:
+      PROJECT_NAME: "mysecrets"
+      CLOUD9_PORT: "14918"
+      GPG_SECRET_KEY:
+      GPG2_SECRET_KEY:
+      GPG_OWNER_TRUST:
+      GPG2_OWNER_TRUST:
+      GPG_KEY_ID:
+      USER_NAME:
+      USER_EMAIL:
+      ORIGIN_ID_RSA:
+      ORIGIN_ORGANIZATION: "desertedscorpion"
+      ORIGIN_REPOSITORY: "passwordstore"
+      HOST_NAME: "github.com"
+      HOST_PORT: "22"
+    labels:
+      expiry: "${EXPIRY}"
   browser:
     image: nextmoose/browser:scratch_05e996af-8b1f-40b7-9c8c-eba269f7d0e1
     privileged: true
