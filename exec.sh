@@ -15,7 +15,7 @@ export EXTERNAL_NETWORK_NAME=$(uuidgen) &&
         --rm \
         --name governor \
         --network ${EXTERNAL_NETWORK_NAME} \
-        --env EXTERNAL_NETWORK_NAME \
+        --env EXTERNAL_NETWORK_NAME=${EXTERNAL_NETWORK_NAME} \
         --env PROJECT_NAME=governor \
         --env CLOUD9_PORT=16842 \
         --env USER_NAME="Emory Merryman" \
