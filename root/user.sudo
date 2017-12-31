@@ -1,1 +1,1 @@
-user ALL=(ALL) NOPASSWD: /usr/bin/sudo
+user ALL=(ALL) NOPASSWD: /usr/bin/docker
