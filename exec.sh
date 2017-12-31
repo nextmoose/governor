@@ -10,6 +10,7 @@ docker(){
         --interactive \
         --tty \
         --rm \
+        --publish-all \
         --env USER_NAME="Emory Merryman" \
         --env USER_EMAIL=emory.merryman@gmail.com
         --env SECRETS_HOST_NAME=github.com
@@ -25,4 +26,4 @@ docker(){
         --label expiry=$(($(date +%s)+60*60*24*7)) \
         --env DISPLAY \
         --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock,readonly=true \
-        nextmoose/governor:scratch_58a9c972-9286-4de0-93ca-5edf2b9980b5
+        nextmoose/governor:scratch_a4b20483-f29c-44b4-a24b-f6d551b5e8e3
