@@ -19,6 +19,6 @@ TEMP=$(mktemp -d) &&
     export EXPIRY="${EXPIRY}" &&
     echo EXPIRY="${EXPIRY}" &&
     cd /opt/docker/workspace &&
-    docker-compose -d
+    docker-compose up -d
 
 
