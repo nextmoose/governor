@@ -14,7 +14,7 @@ export EXTERNAL_NETWORK_NAME=$(uuidgen) &&
         --tty \
         --rm \
         --name governor \
-        --network ${EXTERNAL_NETWORK_NAME}
+        --network ${EXTERNAL_NETWORK_NAME} \
         --env EXTERNAL_NETWORK_NAME \
         --env PROJECT_NAME=governor \
         --env CLOUD9_PORT=16842 \
