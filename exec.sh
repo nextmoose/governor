@@ -5,7 +5,8 @@ export EXTERNAL_NETWORK_NAME=$(uuidgen) &&
     CID=$(mktemp) &&
     rm -f ${CID} &&
     cleanup(){
-        sudo docker container stop $(cat ${CID}) &&
+        sudo docker container logs $(cat ${CID}) &&
+            sudo docker container stop $(cat ${CID}) &&
             sudo docker container rm --volumes $(cat ${CID}) &&
             sudo docker network rm ${EXTERNAL_NETWORK_NAME}
     } &&
