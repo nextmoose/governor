@@ -8,7 +8,6 @@ sudo \
     --tty \
     --rm \
     --publish-all \
-    --entrypoint bash \
     --env USER_NAME="Emory Merryman" \
     --env USER_EMAIL=emory.merryman@gmail.com \
     --env SECRETS_HOST_NAME=github.com \

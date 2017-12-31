@@ -1,5 +1,1 @@
-.dockerignore
-.gitignore
-exec.sh
-private
-README.md
+exec2.sh
