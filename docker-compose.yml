@@ -4,6 +4,8 @@ networks:
 services:
   cloud9:
     image: rebelplutonium/cloud9:0.0.0
+    networks:
+      main:
     environment:
       PROJECT_NAME: "cloud9"
       CLOUD9_PORT: "14918"
