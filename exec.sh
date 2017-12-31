@@ -12,12 +12,12 @@ docker(){
         --rm \
         --publish-all \
         --env USER_NAME="Emory Merryman" \
-        --env USER_EMAIL=emory.merryman@gmail.com
-        --env SECRETS_HOST_NAME=github.com
-        --env SECRETS_HOST_PORT=443
-        --env SECRETS_ORIGIN_ORGANIZATION=nextmoose
-        --env SECRETS_ORIGIN_REPOSITORY=secrets
-        --env GPG_KEY_ID=D65D3F8C
+        --env USER_EMAIL=emory.merryman@gmail.com \
+        --env SECRETS_HOST_NAME=github.com \
+        --env SECRETS_HOST_PORT=443 \
+        --env SECRETS_ORIGIN_ORGANIZATION=nextmoose \
+        --env SECRETS_ORIGIN_REPOSITORY=secrets \
+        --env GPG_KEY_ID=D65D3F8C \
         --env GPG_SECRET_KEY="$(cat private/gpg_secret_key)" \
         --env GPG2_SECRET_KEY="$(cat private/gpg2_secret_key)" \
         --env GPG_OWNER_TRUST="$(cat private/gpg_owner_trust)" \
