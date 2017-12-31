@@ -15,6 +15,8 @@ TEMP=$(mktemp -d) &&
     pass git checkout origin/master &&
     ln -sf /usr/local/bin ${HOME}/.password-store/.git/hooks/pre-commit &&
     cp /opt/docker/extension/docker-compose.yml /opt/docker/workspace &&
-    pass show alpha
+    pass show alpha &&
+    export EXPIRY &&
+    docker-compose up -d
 
 
