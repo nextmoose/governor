@@ -9,8 +9,8 @@ sudo \
     --rm \
     --publish 0.0.0.0:8181:8181 \
     --entrypoint bash \
-    --env PROJECT_NAME governor \
-    --env CLOUD9_PORT 8181 \
+    --env PROJECT_NAME=governor \
+    --env CLOUD9_PORT=8181 \
     --env USER_NAME="Emory Merryman" \
     --env USER_EMAIL=emory.merryman@gmail.com \
     --env SECRETS_HOST_NAME=github.com \
