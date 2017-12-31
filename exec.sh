@@ -7,7 +7,7 @@ sudo \
     --interactive \
     --tty \
     --rm \
-    --publish 0.0.0.0:8181:8181 \
+    --publish 127.0.0.1:8181:8181 \
     --env PROJECT_NAME=governor \
     --env CLOUD9_PORT=8181 \
     --env USER_NAME="Emory Merryman" \
