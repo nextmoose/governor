@@ -11,7 +11,7 @@ services:
       CLOUD9_PORT: "14918"
     labels:
       expiry: "${EXPIRY}"
-  mysecrets.testing:
+  mysecrets:
     image: nextmoose/secret-editor:scratch_0aa97a0b-94d1-459d-bda4-6a751defd727
     networks:
       main:
@@ -32,7 +32,7 @@ services:
       HOST_PORT: "22"
     labels:
       expiry: "${EXPIRY}"
-  mysecrets2:
+  mysecrets.testing:
     image: nextmoose/secret-editor:scratch_6007a52c-0a09-4cf2-b2fc-a782241102aa
     networks:
       main:
