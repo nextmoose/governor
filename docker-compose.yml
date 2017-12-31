@@ -1,0 +1,13 @@
+version: "3.4"
+networks:
+  main:
+services:
+  cloud9:
+    image: rebelplutonium/cloud9:1.0.2
+    networks:
+      main:
+    environment:
+      PROJECT_NAME: "cloud9"
+      CLOUD9_PORT: "14918"
+    labels:
+      expiry: "${EXPIRY}"
