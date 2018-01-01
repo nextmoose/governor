@@ -41,7 +41,7 @@ services:
     labels:
       expiry: "${EXPIRY}"
   cloud9.test:
-    image: nextmoose/github:scratch_f2383df0-ef05-45f1-8b84-83976380826c
+    image: nextmoose/github:scratch_fb54191d-78f2-4889-a85b-e4572dac6885
     networks:
       main:
     environment:
