@@ -1,3 +1,3 @@
 #!/bin/sh
 
-kill 1
+ps all | grep "node" | head -n 1
