@@ -4,7 +4,7 @@ networks:
     external:
       name: ${EXTERNAL_NETWORK_NAME}
 services:
-  browser:
+  the_browser:
     image: nextmoose/browser:scratch_05e996af-8b1f-40b7-9c8c-eba269f7d0e1
     privileged: true
     shm_size: "256m"
@@ -14,7 +14,7 @@ services:
       - "/tmp/.X11-unix:/tmp/.X11-unix:ro"
     networks:
       main:
-    command: ["http://governor:16842", "http://cloud9:16843", "http://github:16843"]
+    command: ["http://governor:16842", "http://browser:16843", "http://cloud9:16843", "http://github:16843"]
     labels:
       expiry: "${EXPIRY}"
   cloud9:
@@ -56,6 +56,29 @@ services:
       REPORT_ID_RSA:
       REPORT_ORGANIZATION: "rebelplutonium"
       REPORT_REPOSITORY: "github"
+      HOST_NAME: "github.com"
+      HOST_PORT: "22"
+      USER_NAME:
+      USER_EMAIL:
+      MASTER_BRANCH: "master"
+    labels:
+      expiry: "${EXPIRY}"
+  browser:
+    image: rebelplutonium/github:0.0.1
+    networks:
+      main:
+    environment:
+      PROJECT_NAME: "browser"
+      CLOUD9_PORT: "16843"
+      UPSTREAM_ID_RSA:
+      UPSTREAM_ORGANIZATION: "rebelplutonium"
+      UPSTREAM_REPOSITORY: "browser"
+      ORIGIN_ID_RSA:
+      ORIGIN_ORGANIZATION: "nextmoose"
+      ORIGIN_REPOSITORY: "browser"
+      REPORT_ID_RSA:
+      REPORT_ORGANIZATION: "rebelplutonium"
+      REPORT_REPOSITORY: "browser"
       HOST_NAME: "github.com"
       HOST_PORT: "22"
       USER_NAME:
