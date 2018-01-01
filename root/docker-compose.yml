@@ -14,7 +14,7 @@ services:
       - "/tmp/.X11-unix:/tmp/.X11-unix:ro"
     networks:
       main:
-    command: ["http://governor:16842"]
+    command: ["http://governor:16842", "http://cloud9:16843"]
     labels:
       expiry: "${EXPIRY}"
   cloud9:
