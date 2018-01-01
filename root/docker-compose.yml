@@ -14,7 +14,7 @@ services:
       - "/tmp/.X11-unix:/tmp/.X11-unix:ro"
     networks:
       main:
-    command: ["http://governor:16842", "http://cloud9:16843", "http://github:16843"]
+    command: ["http://governor:16842", "http://cloud9:16843", "http://github:16844"]
     labels:
       expiry: "${EXPIRY}"
   cloud9:
@@ -46,7 +46,7 @@ services:
       main:
     environment:
       PROJECT_NAME: "github"
-      github_PORT: "16843"
+      github_PORT: "16844"
       UPSTREAM_ID_RSA:
       UPSTREAM_ORGANIZATION: "rebelplutonium"
       UPSTREAM_REPOSITORY: "github"

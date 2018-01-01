@@ -18,8 +18,6 @@ TEMP=$(mktemp -d) &&
     pass show alpha &&
     export EXPIRY="${EXPIRY}" &&
     export UPSTREAM_ID_RSA="$(pass show ssh-keys.old/github/upstream/private)" &&
-    echo "UPSTREAM_ID_RSA" &&
-    echo "${UPSTREAM_ID_RSA}" &&
     export ORIGIN_ID_RSA="$(pass show ssh-keys.old/github/origin/private)" &&
     export REPORT_ID_RSA="$(pass show ssh-keys.old/github/report/private)" &&
     cd /opt/docker/workspace &&
