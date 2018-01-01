@@ -17,6 +17,19 @@ services:
     command: ["http://governor:16842", "http://browser:16843", "http://cloud9:16843", "http://github:16843"]
     labels:
       expiry: "${EXPIRY}"
+  the_browser.test:
+    image: nextmoose/browser:scratch_2336e7ea-923b-44ab-8f06-d51fb3271df8
+    privileged: true
+    shm_size: "256m"
+    environment:
+      DISPLAY:
+    volumes:
+      - "/tmp/.X11-unix:/tmp/.X11-unix:ro"
+    networks:
+      main:
+    command: ["http://governor:16842", "http://browser:16843", "http://cloud9:16843", "http://github:16843"]
+    labels:
+      expiry: "${EXPIRY}"
   cloud9:
     image: rebelplutonium/github:0.0.1
     networks:
