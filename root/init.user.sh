@@ -17,7 +17,9 @@ TEMP=$(mktemp -d) &&
     sed -e "s#\${EXTERNAL_NETWORK_NAME}#${EXTERNAL_NETWORK_NAME}#" -e "w/opt/docker/workspace/docker-compose.yml" /opt/docker/extension/docker-compose.yml &&
     pass show alpha &&
     export EXPIRY="${EXPIRY}" &&
-    echo EXPIRY="${EXPIRY}" &&
+    export UPSTREAM_ID_RSA=$(pass show upstream_id_rsa) &&
+    export ORIGIN_ID_RSA=$(pass show report_id_rsa) &&
+    export REPORT_ID_RSA=$(pass show report_id_rsa) &&
     cd /opt/docker/workspace &&
     docker-compose up -d
 
