@@ -1,3 +1,3 @@
 #!/bin/sh
 
-kill 127
+kill 1
