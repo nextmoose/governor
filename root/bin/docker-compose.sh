@@ -1,3 +1,3 @@
 #!/bin/sh
 
-sudo /usr/local/sbin/docker-compose "${@}"
+sudo -E /usr/local/sbin/docker-compose "${@}"
