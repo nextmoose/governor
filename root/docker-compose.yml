@@ -41,7 +41,7 @@ services:
     labels:
       expiry: "${EXPIRY}"
   github:
-    image: nextmoose/github:scratch_b569e7f6-60e5-499d-8ba6-aa9f2185f0e1
+    image: rebelplutonium/github:0.0.1
     networks:
       main:
     environment:
