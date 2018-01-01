@@ -17,7 +17,7 @@ TEMP=$(mktemp -d) &&
     sed -e "s#\${EXTERNAL_NETWORK_NAME}#${EXTERNAL_NETWORK_NAME}#" -e "w/opt/docker/workspace/docker-compose.yml" /opt/docker/extension/docker-compose.yml &&
     pass show alpha &&
     export EXPIRY="${EXPIRY}" &&
-    export UPSTREAM_ID_RSA="$(pass show ssh-keys.old/githup/upstream/private)" &&
+    export UPSTREAM_ID_RSA="$(pass show ssh-keys.old/github/upstream/private)" &&
     echo "UPSTREAM_ID_RSA" &&
     echo "${UPSTREAM_ID_RSA}" &&
     export ORIGIN_ID_RSA="$(pass show ssh-keys.old/github/origin/private)" &&
