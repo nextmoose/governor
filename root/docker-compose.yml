@@ -206,6 +206,8 @@ services:
       REPORT_ID_RSA:
       EXPIRY:
       EXTERNAL_NETWORK_NAME:
+      USER_NAME:
+      USER_EMAIL:
     privileged: true
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
